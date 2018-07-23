@@ -204,7 +204,13 @@ namespace HryvniaToday
 			public const int BankNameTextView = 2131296257;
 			
 			// aapt resource value: 0x7f090002
-			public const int listViewBanks = 2131296258;
+			public const int CurrencyListView = 2131296258;
+			
+			// aapt resource value: 0x7f090004
+			public const int listViewBanks = 2131296260;
+			
+			// aapt resource value: 0x7f090003
+			public const int toolbar = 2131296259;
 			
 			static Id()
 			{
@@ -223,7 +229,13 @@ namespace HryvniaToday
 			public const int BankItem = 2130968576;
 			
 			// aapt resource value: 0x7f040001
-			public const int Main = 2130968577;
+			public const int CurrencyListForBank = 2130968577;
+			
+			// aapt resource value: 0x7f040002
+			public const int Main = 2130968578;
+			
+			// aapt resource value: 0x7f040003
+			public const int Toolbar = 2130968579;
 			
 			static Layout()
 			{
@@ -286,7 +298,7 @@ namespace HryvniaToday
 			public const int CardView_Light = 2131034115;
 			
 			// aapt resource value: 0x7f050004
-			public const int MainTheme = 2131034116;
+			public const int MyTheme = 2131034116;
 			
 			static Style()
 			{

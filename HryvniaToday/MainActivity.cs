@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using HryvniaToday.Model.Class;
 using CurrencyApplication.Adapters;
 using HryvniaToday.Model.Repository;
+using Android.Views;
 
 namespace HryvniaToday
 {
-    [Activity(Label = "Гривня Today", MainLauncher = true, Icon = "@mipmap/icon", Theme = "@style/MainTheme")]
+    [Activity(Label = "Гривня Today", MainLauncher = true, Icon = "@mipmap/icon", Theme = "@style/MyTheme")]
     public class MainActivity : Activity
     {
 
@@ -17,6 +18,9 @@ namespace HryvniaToday
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
+
+            //RequestWindowFeature(WindowFeatures.CustomTitle); // Hide title bar
+
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Main);
 
@@ -28,8 +32,6 @@ namespace HryvniaToday
             int counterId = 0;
             foreach (Bank bankItem in list)
             {
-
-
                 switch (bankItem.Title)
                 {
                     case "ПриватБанк":
@@ -132,8 +134,6 @@ namespace HryvniaToday
                         // reslist.Add(bankItem);
                         break;
                 }
-
-
             }
 
             listViewBanks = FindViewById<ListView>(Resource.Id.listViewBanks);
@@ -142,6 +142,9 @@ namespace HryvniaToday
             BankAdapter adapter = new BankAdapter(this, reslist);
             listViewBanks.Adapter = adapter;
 
+            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            SetActionBar(toolbar);
+            ActionBar.Title = "Гривня сьогодні";
 
 
         }
