@@ -6,6 +6,7 @@ using HryvniaToday.Model.Class;
 using CurrencyApplication.Adapters;
 using HryvniaToday.Model.Repository;
 using Android.Views;
+using Android.Graphics;
 
 namespace HryvniaToday
 {
@@ -146,7 +147,20 @@ namespace HryvniaToday
             SetActionBar(toolbar);
             ActionBar.Title = "Гривня сьогодні";
 
+            
+        }
 
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.top_menus, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            Toast.MakeText(this, "Action selected: " + item.TitleFormatted,
+                ToastLength.Short).Show();
+            return base.OnOptionsItemSelected(item);
         }
     }
 }

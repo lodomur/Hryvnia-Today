@@ -1,4 +1,5 @@
 ﻿using Android.Content;
+using Android.Graphics;
 using Android.Views;
 using Android.Widget;
 using HryvniaToday;
@@ -6,7 +7,7 @@ using HryvniaToday.Model.Class;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using Android.Views;
 
 namespace CurrencyApplication.Adapters
 {
@@ -53,6 +54,9 @@ namespace CurrencyApplication.Adapters
 
             ImageView BankLogoImageView = view.FindViewById<ImageView>(Resource.Id.BankLogoImageView);
             BankLogoImageView.SetImageResource(listData[position].BankLogo);
+
+            Typeface type = Typeface.CreateFromAsset(context.Assets, "Oswald-Regular.ttf");
+            BankNameListView.SetTypeface(type,TypefaceStyle.Normal);
             return view;
         }
     }

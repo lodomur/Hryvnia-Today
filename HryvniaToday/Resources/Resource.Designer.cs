@@ -197,20 +197,23 @@ namespace HryvniaToday
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f090000
-			public const int BankLogoImageView = 2131296256;
+			// aapt resource value: 0x7f0a0000
+			public const int BankLogoImageView = 2131361792;
 			
-			// aapt resource value: 0x7f090001
-			public const int BankNameTextView = 2131296257;
+			// aapt resource value: 0x7f0a0001
+			public const int BankNameTextView = 2131361793;
 			
-			// aapt resource value: 0x7f090002
-			public const int CurrencyListView = 2131296258;
+			// aapt resource value: 0x7f0a0002
+			public const int CurrencyListView = 2131361794;
 			
-			// aapt resource value: 0x7f090004
-			public const int listViewBanks = 2131296260;
+			// aapt resource value: 0x7f0a0004
+			public const int listViewBanks = 2131361796;
 			
-			// aapt resource value: 0x7f090003
-			public const int toolbar = 2131296259;
+			// aapt resource value: 0x7f0a0005
+			public const int menu_copy = 2131361797;
+			
+			// aapt resource value: 0x7f0a0003
+			public const int toolbar = 2131361795;
 			
 			static Id()
 			{
@@ -247,11 +250,30 @@ namespace HryvniaToday
 			}
 		}
 		
+		public partial class Menu
+		{
+			
+			// aapt resource value: 0x7f090000
+			public const int top_menus = 2131296256;
+			
+			static Menu()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Menu()
+			{
+			}
+		}
+		
 		public partial class Mipmap
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Icon = 2130903040;
+			public const int baseline_insert_chart_outlined_white_48 = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int Icon = 2130903041;
 			
 			static Mipmap()
 			{
