@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <style name="MainTheme" perent="android:Theme.Material.Light">
+    <item name="android:colorPrimary">#00796b</item>
+    <item name="android:textColorPrimary">#FFFFFF</item>
+    <item name="android:statusBarColor">#00695c</item>
+    <item name="android:navigationBarColor">#00695C</item>
+  </style>
+</resources>
