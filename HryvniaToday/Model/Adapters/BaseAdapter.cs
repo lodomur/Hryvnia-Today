@@ -1,63 +1,53 @@
-﻿using Android.Content;
-using Android.Graphics;
-using Android.Views;
-using Android.Widget;
+﻿using Android.Views;
 using HryvniaToday;
 using HryvniaToday.Model.Class;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Android.Views;
+using Android.Support.V7.Widget;
+using HryvniaToday.Model.Repository;
+using Android.Widget;
+using Android.Content;
 
 namespace CurrencyApplication.Adapters
 {
-    public class BankAdapter : BaseAdapter<Bank>
+    public class BankAdapter : RecyclerView.Adapter
     {
-        public List<Bank> listData;
-        public Context context;
+        public event EventHandler<int> ItemClick;
+        public List<Bank> mPhotoAlbum;
+        public List<Bank> list, reslist;
 
-        // Contrsuctor for adapter CryptoAdapter
-        public BankAdapter(Context context, List<Bank> listData)
+        public BankAdapter(List<Bank> photoAlbum)
         {
-            this.context = context;
-            this.listData = listData;
+            mPhotoAlbum = photoAlbum;
         }
-
-        public override Bank this[int position]
+        public override int ItemCount
         {
-            get { return listData.ElementAt(position); }
+            get { return mPhotoAlbum.Count(); }
         }
-
-
-        public override int Count
+        public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
-            get { return listData.Count; }
+            BankViewHolder vh = holder as BankViewHolder;
+
+            reslist = BankRepository.GetBanksData();
+          
+
+            vh.Image.SetImageResource(reslist.ElementAt(position).BankLogo);
+            vh.BankName.Text = reslist.ElementAt(position).Title;
         }
 
-
-        public override long GetItemId(int position)
-        {  
-            
-            return (long)Convert.ToDouble(listData.ElementAt(position).Id);
-        }
-
-        public override View GetView(int position, View convertView, ViewGroup parent)
+        public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
-            View view = convertView;
-
-            if (view == null)
-                view = LayoutInflater.From(context).Inflate(Resource.Layout.BankItem, null);
-
-
-            TextView BankNameListView = view.FindViewById<TextView>(Resource.Id.BankNameTextView);
-            BankNameListView.Text = listData.ElementAt(position).Title;
-
-            ImageView BankLogoImageView = view.FindViewById<ImageView>(Resource.Id.BankLogoImageView);
-            BankLogoImageView.SetImageResource(listData[position].BankLogo);
-
-            Typeface type = Typeface.CreateFromAsset(context.Assets, "Oswald-Regular.ttf");
-            BankNameListView.SetTypeface(type,TypefaceStyle.Normal);
-            return view;
+            View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.BankItem, parent, false);
+            BankViewHolder vh = new BankViewHolder(itemView, OnClick);
+            return vh;
         }
+        private void OnClick(int obj)
+        {
+            if (ItemClick != null)
+                ItemClick(this, obj);
+        }
+
+        
     }
 }
