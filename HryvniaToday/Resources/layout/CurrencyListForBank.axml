@@ -5,11 +5,13 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px">
+    <include
+        android:id="@+id/toolbarCurrencyList"
+        layout="@layout/ToolbarCurrencyList" />
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/listViewCurrencyFromBank" />
- 
 </LinearLayout>

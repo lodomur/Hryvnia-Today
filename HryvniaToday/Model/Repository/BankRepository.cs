@@ -144,8 +144,14 @@ namespace HryvniaToday.Model.Repository
                 }
             }
 
-            reslist.Reverse();
-            reslist.RemoveAt(4);
+
+            var rfbDuplicate = reslist.Where(x => x.Title == "Райффайзен Банк Аваль").ToList();
+
+            if (rfbDuplicate.Count() == 2)
+            {
+                reslist.Remove(rfbDuplicate.ElementAt(0));
+            }
+
             return reslist;
         }
 

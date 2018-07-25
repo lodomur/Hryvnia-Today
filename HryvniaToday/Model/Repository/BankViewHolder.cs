@@ -1,4 +1,5 @@
 ﻿using System;
+using Android.Graphics;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
@@ -13,6 +14,10 @@ namespace HryvniaToday.Model.Repository
         {
             Image = itemview.FindViewById<ImageView>(Resource.Id.BankLogoImageView);
             BankName = itemview.FindViewById<TextView>(Resource.Id.BankNameTextView);
+
+            
+            
+
             itemview.Click += (sender, e) => listener(base.Position);
         }
     }

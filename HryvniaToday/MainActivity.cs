@@ -67,8 +67,16 @@ namespace HryvniaToday
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            Toast.MakeText(this, "Action selected: " + item.TitleFormatted,
-                ToastLength.Short).Show();
+
+            if (item.TitleFormatted.ToString() == "ChartsRates")
+            {
+                var activity = new Intent(this, typeof(ChartRatesActivity)); 
+                StartActivity(activity);
+
+           
+
+    }
+
             return base.OnOptionsItemSelected(item);
         }
 

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -15,7 +17,7 @@ using HryvniaToday.Model.Repository;
 
 namespace HryvniaToday
 {
-    [Activity(Label = "Курс валют в банку")]
+    [Activity(Label = "Курс валют в банку", Theme = "@style/MyTheme")]
     public class CurrencyActivity : Activity
     {
         ListView listViewCurrency;
@@ -33,7 +35,7 @@ namespace HryvniaToday
 
             // List view adapter
             List<Currency> bankcurrencyList = new List<Currency>();
-           
+
             int id = 0;
             foreach (Currency itemCurrency in selectedBank.Currencies)
             {
@@ -41,16 +43,38 @@ namespace HryvniaToday
                 itemCurrency.RecordId = id;
                 bankcurrencyList.Add(itemCurrency);
             }
- 
+
             listViewCurrency = FindViewById<ListView>(Resource.Id.listViewCurrencyFromBank);
             CurrencyAdapter adapter = new CurrencyAdapter(this, bankcurrencyList);
             listViewCurrency.Adapter = adapter;
 
             // Toolbar
-            //var toolbar = FindViewById<Toolbar>(Resource.Id.toolbarCurrencyList);
-            //SetActionBar(toolbar);
-            //ActionBar.Title = selectedBank.Title;
+            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbarCurrencyList);
+            SetActionBar(toolbar);
+            ActionBar.Title = selectedBank.Title;
+
+
+             
 
         }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.top_menu_back, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+
+
+            if (item.TitleFormatted.ToString() == "Back")
+            {
+                this.Finish();
+            }
+
+            return base.OnOptionsItemSelected(item);
+        }
+
     }
 }

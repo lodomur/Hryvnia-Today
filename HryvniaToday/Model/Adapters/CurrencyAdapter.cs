@@ -53,14 +53,21 @@ namespace HryvniaToday.Model.Adapters
 
 
             TextView CurrencyName = view.FindViewById<TextView>(Resource.Id.CurrencyName);
-            CurrencyName.Text = listData.ElementAt(position).Id.ToString();
+            CurrencyName.Text = listData.ElementAt(position).Id;
+
+            TextView CurrencyBuy = view.FindViewById<TextView>(Resource.Id.CurrencyBuy);
+            CurrencyBuy.Text = "Купівля: " + listData.ElementAt(position).Buy;
+
+            TextView CurrencySell = view.FindViewById<TextView>(Resource.Id.CurrencySell);
+            CurrencySell.Text = "Продаж: " + listData.ElementAt(position).Sell;
 
             //ImageView BankLogoImageView = view.FindViewById<ImageView>(Resource.Id.BankLogoImageView);
             //BankLogoImageView.SetImageResource(listData[position].BankLogo);
 
-            Typeface type = Typeface.CreateFromAsset(context.Assets, "Oswald-Regular.ttf");
+            Typeface type = Typeface.CreateFromAsset(context.Assets, "Arimo-Regular.ttf");
             CurrencyName.SetTypeface(type, TypefaceStyle.Normal);
-
+            CurrencyBuy.SetTypeface(type, TypefaceStyle.Normal);
+            CurrencySell.SetTypeface(type, TypefaceStyle.Normal);
             return view;
 
            
