@@ -14,7 +14,7 @@ using Android.Graphics.Drawables;
 
 namespace HryvniaToday
 {
-    [Activity(Label = "Гривня Today", MainLauncher = true, Icon = "@mipmap/icon", Theme = "@style/MyTheme")]
+    [Activity(Label = "Моя Гривня", MainLauncher = true, Icon = "@mipmap/icon", Theme = "@style/MyTheme")]
     public class MainActivity : Activity
     {
         RecyclerView mRecycleView;
@@ -47,7 +47,12 @@ namespace HryvniaToday
             SetActionBar(toolbar);
             ActionBar.Title = "Гривня сьогодні";
             CardView cardViewBankItem = FindViewById<CardView>(Resource.Id.BankImageCardView);
-           
+
+            //Typeface type = Typeface.CreateFromAsset(this.Assets, "Oswald-Regular.ttf");
+
+            //var text = FindViewById<TextView>(Resource.Id.BankNameTextView);
+            //text.SetTypeface(type, TypefaceStyle.Normal);
+
         }
 
         private void MAdapter_ItemClick(object sender, int e)

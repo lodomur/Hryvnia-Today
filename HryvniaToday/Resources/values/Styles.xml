@@ -6,4 +6,5 @@
     <item name="android:colorPrimary">#00796b</item>
     <item name="android:statusBarColor">#00695c</item>
   </style>
+ 
 </resources>

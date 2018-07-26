@@ -3,111 +3,200 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
-  <LinearLayout
-      android:orientation="vertical"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+      <include
+          android:id="@+id/toolbarCurrencyList"
+           layout="@layout/ToolbarCurrencyList"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/USDRateTextView_sell"
+            android:layout_height="wrap_content"
+            android:text="Банки продають (USD)"
+            android:textColor="#004D40"
+            android:padding="5dp"
+            android:gravity="center"
+            android:textSize="14sp" />
+        <android.support.v7.widget.CardView
+            android:id="@+id/USD_sell_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:padding="8dp"
+            android:clickable="false">
 
-    <TextView
-		  android:layout_width="match_parent"
-		  android:id="@+id/USDRateTextView_sell"
-		  android:layout_height="wrap_content"
-		  android:text="Банки продають (UAH - USD)"
-		  android:textColor="#004D40"
-		  android:padding="5dp"
-		  android:gravity="center"
-		  android:textSize="14sp" />
-    <android.support.v7.widget.CardView
-			android:id="@+id/USD_sell_card"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:background="#FFFFFF"
-			android:foreground="?android:attr/selectableItemBackground"
-			android:clickable="false"
-			android:layout_margin="8dp">
-      <microcharts.droid.ChartView
-			 android:id="@+id/chartViewUSD_sell"
-			 android:layout_width="wrap_content"
-			 android:padding="0dp"
-			 android:layout_height="180dp" />
-    </android.support.v7.widget.CardView>
+            <microcharts.droid.ChartView
+                android:id="@+id/chartViewUSD_sell"
+                android:layout_width="wrap_content"
+                android:padding="0dp"
+                android:layout_height="160dp" />
 
-
-    <TextView
-		 android:layout_width="match_parent"
-		 android:id="@+id/USDRateTextView_buy"
-		 android:layout_height="wrap_content"
-		 android:text="Банки купують (UAH - USD)"
-		 android:textColor="#004D40"
-		 android:padding="5dp"
-		 android:gravity="center"
-		 android:textSize="14sp" />
-    <android.support.v7.widget.CardView
-		android:id="@+id/USD_buy_card"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:background="#FFFFFF"
-		android:foreground="?android:attr/selectableItemBackground"
-		android:clickable="false"
-		android:layout_margin="8dp">
-      <microcharts.droid.ChartView
-			  android:id="@+id/chartViewUSD_buy"
-			  android:layout_width="wrap_content"
-			  android:padding="0dp"
-			  android:layout_height="180dp" />
-    </android.support.v7.widget.CardView>
-
-
-
-    <TextView
- android:layout_width="match_parent"
- android:id="@+id/EURRateTextView_sell"
- android:layout_height="wrap_content"
- android:text="Банки купують (UAH - EUR)"
- android:textColor="#004D40"
- android:padding="5dp"
- android:gravity="center"
- android:textSize="14sp" />
-    <android.support.v7.widget.CardView
-		android:id="@+id/EUR_sell_card"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:background="#FFFFFF"
-		android:foreground="?android:attr/selectableItemBackground"
-		android:clickable="false"
-		android:layout_margin="8dp">
-      <microcharts.droid.ChartView
-			  android:id="@+id/chartViewEUR_sell"
-			  android:layout_width="wrap_content"
-			  android:padding="0dp"
-			  android:layout_height="180dp" />
-    </android.support.v7.widget.CardView>
-
-
-    <TextView
- android:layout_width="match_parent"
- android:id="@+id/EURRateTextView_buy"
- android:layout_height="wrap_content"
- android:text="Банки купують (UAH - EUR)"
- android:textColor="#004D40"
- android:padding="5dp"
- android:gravity="center"
- android:textSize="14sp" />
-    <android.support.v7.widget.CardView
-		android:id="@+id/EUR_buy_card"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:background="#FFFFFF"
-		android:foreground="?android:attr/selectableItemBackground"
-		android:clickable="false"
-		android:layout_margin="8dp">
-      <microcharts.droid.ChartView
-			  android:id="@+id/chartViewEUR_buy"
-			  android:layout_width="wrap_content"
-			  android:padding="0dp"
-			  android:layout_height="180dp" />
-    </android.support.v7.widget.CardView>
-
-  </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/USDRateTextView_buy"
+            android:layout_height="wrap_content"
+            android:text="Банки купують (USD)"
+            android:textColor="#004D40"
+            android:padding="5dp"
+            android:gravity="center"
+            android:textSize="14sp" />
+        <android.support.v7.widget.CardView
+            android:id="@+id/USD_buy_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="false"
+            >
+            <microcharts.droid.ChartView
+                android:id="@+id/chartViewUSD_buy"
+                android:layout_width="wrap_content"
+                android:padding="0dp"
+                android:layout_height="160dp" />
+        </android.support.v7.widget.CardView>
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/EURRateTextView_sell"
+            android:layout_height="wrap_content"
+            android:text="Банки купують (EUR)"
+            android:textColor="#004D40"
+            android:padding="5dp"
+            android:gravity="center"
+            android:textSize="14sp" />
+        <android.support.v7.widget.CardView
+            android:id="@+id/EUR_sell_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="false"
+            >
+            <microcharts.droid.ChartView
+                android:id="@+id/chartViewEUR_sell"
+                android:layout_width="wrap_content"
+                android:padding="0dp"
+                android:layout_height="160dp" />
+        </android.support.v7.widget.CardView>
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/EURRateTextView_buy"
+            android:layout_height="wrap_content"
+            android:text="Банки купують (EUR)"
+            android:textColor="#004D40"
+            android:padding="5dp"
+            android:gravity="center"
+            android:textSize="14sp" />
+        <android.support.v7.widget.CardView
+            android:id="@+id/EUR_buy_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="false"
+            >
+            <microcharts.droid.ChartView
+                android:id="@+id/chartViewEUR_buy"
+                android:layout_width="wrap_content"
+                android:padding="0dp"
+                android:layout_height="160dp" />
+        </android.support.v7.widget.CardView>
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/RUBRateTextView_sell"
+            android:layout_height="wrap_content"
+            android:text="Банки купують (RUB)"
+            android:textColor="#004D40"
+            android:padding="5dp"
+            android:gravity="center"
+            android:textSize="14sp" />
+        <android.support.v7.widget.CardView
+            android:id="@+id/RUB_sell_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="false"
+            >
+            <microcharts.droid.ChartView
+                android:id="@+id/chartViewRUB_sell"
+                android:layout_width="wrap_content"
+                android:padding="0dp"
+                android:layout_height="160dp" />
+        </android.support.v7.widget.CardView>
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/RUBRateTextView_buy"
+            android:layout_height="wrap_content"
+            android:text="Банки продають (RUB)"
+            android:textColor="#004D40"
+            android:padding="5dp"
+            android:gravity="center"
+            android:textSize="14sp" />
+        <android.support.v7.widget.CardView
+            android:id="@+id/RUB_buy_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="false"
+            >
+            <microcharts.droid.ChartView
+                android:id="@+id/chartViewRUB_buy"
+                android:layout_width="wrap_content"
+                android:padding="0dp"
+                android:layout_height="160dp" />
+        </android.support.v7.widget.CardView>
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/PLNRateTextView_sell"
+            android:layout_height="wrap_content"
+            android:text="Банки купують (PLN)"
+            android:textColor="#004D40"
+            android:padding="5dp"
+            android:gravity="center"
+            android:textSize="14sp" />
+        <android.support.v7.widget.CardView
+            android:id="@+id/PLN_sell_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="false"
+            >
+            <microcharts.droid.ChartView
+                android:id="@+id/chartViewPLN_sell"
+                android:layout_width="wrap_content"
+                android:padding="0dp"
+                android:layout_height="160dp" />
+        </android.support.v7.widget.CardView>
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/PLNRateTextView_buy"
+            android:layout_height="wrap_content"
+            android:text="Банки продають (PLN)"
+            android:textColor="#004D40"
+            android:padding="5dp"
+            android:gravity="center"
+            android:textSize="14sp" />
+        <android.support.v7.widget.CardView
+            android:id="@+id/PLN_buy_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="false"
+            >
+            <microcharts.droid.ChartView
+                android:id="@+id/chartViewPLN_buy"
+                android:layout_width="wrap_content"
+                android:padding="0dp"
+                android:layout_height="160dp" />
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
 </ScrollView>

@@ -60,7 +60,7 @@ namespace HryvniaToday
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            MenuInflater.Inflate(Resource.Menu.top_menu_back, menu);
+            MenuInflater.Inflate(Resource.Menu.top_menu_back_change, menu);
             return base.OnCreateOptionsMenu(menu);
         }
 

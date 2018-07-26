@@ -14,10 +14,6 @@ namespace HryvniaToday.Model.Repository
         {
             Image = itemview.FindViewById<ImageView>(Resource.Id.BankLogoImageView);
             BankName = itemview.FindViewById<TextView>(Resource.Id.BankNameTextView);
-
-            
-            
-
             itemview.Click += (sender, e) => listener(base.Position);
         }
     }

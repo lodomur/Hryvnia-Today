@@ -4,43 +4,44 @@
     android:layout_width="fill_parent"
     android:clickable="true"
     android:layout_height="wrap_content">
-    <android.support.v7.widget.CardView
-        android:id="@+id/BankImageCardView"
+  <android.support.v7.widget.CardView
+      android:id="@+id/BankImageCardView"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="#FFFFFF"
+      android:foreground="?android:attr/selectableItemBackground"
+      android:clickable="false"
+      android:layout_margin="8dp">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:clickable="false"
-        android:layout_margin="8dp">
-        <LinearLayout
+        android:orientation="vertical">
+      <ImageView
+          android:id="@+id/BankLogoImageView"
+          android:layout_width="match_parent"
+          android:adjustViewBounds="true"
+          android:layout_height="120dp"
+          android:scaleType="fitCenter"
+          android:src="@drawable/ukrpost" />
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          android:background="#00695c"
+          android:paddingTop="5dp">
+        <TextView
             android:layout_width="match_parent"
+            android:id="@+id/BankNameTextView"
             android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            android:orientation="vertical">
-            <ImageView
-                android:id="@+id/BankLogoImageView"
-                android:layout_width="match_parent"
-                android:adjustViewBounds="true"
-                android:layout_height="120dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ukrpost" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="#00695c"
-                android:paddingTop="5dp">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:id="@+id/BankNameTextView"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:text="Bank name"
-                    android:textColor="#FFFFFF"
-                    android:paddingTop="3dp"
-                    android:paddingLeft="10dp"
-                    android:textSize="15sp" />
-            </LinearLayout>
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
+            android:layout_marginBottom="8dp"
+            android:text="Bank name"
+            android:textColor="#FFFFFF"
+            android:paddingTop="3dp"
+            android:fontFamily="Oswald-Regular.ttf"
+            android:paddingLeft="10dp"
+            android:textSize="15sp" />
+      </LinearLayout>
+    </LinearLayout>
+  </android.support.v7.widget.CardView>
 </FrameLayout>

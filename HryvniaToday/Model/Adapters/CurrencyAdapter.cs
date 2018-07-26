@@ -64,7 +64,7 @@ namespace HryvniaToday.Model.Adapters
             //ImageView BankLogoImageView = view.FindViewById<ImageView>(Resource.Id.BankLogoImageView);
             //BankLogoImageView.SetImageResource(listData[position].BankLogo);
 
-            Typeface type = Typeface.CreateFromAsset(context.Assets, "Arimo-Regular.ttf");
+            Typeface type = Typeface.CreateFromAsset(context.Assets, "Oswald-Regular.ttf");
             CurrencyName.SetTypeface(type, TypefaceStyle.Normal);
             CurrencyBuy.SetTypeface(type, TypefaceStyle.Normal);
             CurrencySell.SetTypeface(type, TypefaceStyle.Normal);
@@ -74,3 +74,5 @@ namespace HryvniaToday.Model.Adapters
         }
     }
 }
+
+

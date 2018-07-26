@@ -52,16 +52,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microcharts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microcharts.0.7.1\lib\MonoAndroid10\Microcharts.dll</HintPath>
+      <HintPath>..\packages\Microcharts.0.8.3-pre\lib\MonoAndroid10\Microcharts.dll</HintPath>
     </Reference>
     <Reference Include="Microcharts.Droid, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microcharts.0.7.1\lib\MonoAndroid10\Microcharts.Droid.dll</HintPath>
+      <HintPath>..\packages\Microcharts.0.8.3-pre\lib\MonoAndroid10\Microcharts.Droid.dll</HintPath>
     </Reference>
-    <Reference Include="SkiaSharp, Version=1.59.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <HintPath>..\packages\SkiaSharp.1.59.1\lib\MonoAndroid\SkiaSharp.dll</HintPath>
+    <Reference Include="SkiaSharp, Version=1.60.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\SkiaSharp.1.60.2\lib\MonoAndroid\SkiaSharp.dll</HintPath>
     </Reference>
-    <Reference Include="SkiaSharp.Views.Android, Version=1.59.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <HintPath>..\packages\SkiaSharp.Views.1.59.1.1\lib\MonoAndroid\SkiaSharp.Views.Android.dll</HintPath>
+    <Reference Include="SkiaSharp.Views.Android, Version=1.60.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\SkiaSharp.Views.1.60.2\lib\MonoAndroid\SkiaSharp.Views.Android.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
@@ -124,14 +124,18 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\Oswald-Regular.ttf" />
-    <AndroidAsset Include="Assets\Arimo-Regular.ttf" />
+    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\layout\BankItem.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\CurrencyListForBank.axml" />
-    <AndroidResource Include="Resources\layout\Toolbar.axml" />
+    <AndroidResource Include="Resources\layout\CurrencyListForBank.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Toolbar.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\layout\ToolbarCurrencyList.axml" />
     <AndroidResource Include="Resources\layout\CurrencyItem.axml">
       <SubType>Designer</SubType>
@@ -140,6 +144,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\ChartRatesView.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Menu\top_menu_back_change.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -287,6 +294,7 @@
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-xxxhdpi\baseline_swap_horiz_white_24.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Crosslight.Xamarin.Android.Support.Annotations.25.3.1\build\MonoAndroid70\Crosslight.Xamarin.Android.Support.Annotations.targets" Condition="Exists('..\packages\Crosslight.Xamarin.Android.Support.Annotations.25.3.1\build\MonoAndroid70\Crosslight.Xamarin.Android.Support.Annotations.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
