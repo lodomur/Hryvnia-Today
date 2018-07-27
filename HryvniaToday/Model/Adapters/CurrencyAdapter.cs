@@ -61,6 +61,8 @@ namespace HryvniaToday.Model.Adapters
             TextView CurrencySell = view.FindViewById<TextView>(Resource.Id.CurrencySell);
             CurrencySell.Text = "Продаж: " + listData.ElementAt(position).Sell;
 
+            ImageView img_flag = view.FindViewById<ImageView>(Resource.Id.img_flag);
+            img_flag.SetImageResource(listData[position].CurrencyLogo);
             //ImageView BankLogoImageView = view.FindViewById<ImageView>(Resource.Id.BankLogoImageView);
             //BankLogoImageView.SetImageResource(listData[position].BankLogo);
 

@@ -1,31 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-    <ImageView
-        android:id="@+id/icon"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="4dp"
-        android:src="@drawable/abank" />
-    <TextView
-        android:id="@+id/CurrencyName"
-        android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#00796b">
+ 
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@+id/label"
-        android:textSize="10dp" />
-    <TextView
-        android:id="@+id/CurrencyBuy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@+id/label"
-        android:textSize="8dp" />
-    <TextView
-        android:id="@+id/CurrencySell"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@+id/label"
-        android:textSize="8dp" />
+        android:padding="16dp"
+            >
+
+      <ImageView
+          android:layout_width="46dp"
+          android:layout_height="46dp"
+          android:id="@+id/img_flag"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentTop="true"
+          android:layout_marginRight="16dp"
+          android:src="@drawable/PLN"
+                />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/CurrencyName"
+          android:layout_toRightOf="@+id/img_flag"
+          android:layout_alignParentTop="true"
+          android:textSize="30sp"
+          android:textColor="#FFFFFF"
+                />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/CurrencyBuy"
+          android:layout_toRightOf="@+id/img_flag"
+          android:layout_below="@+id/CurrencyName"
+            android:textColor="#FFFFFF"
+                />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/CurrencySell"
+          android:layout_toRightOf="@+id/img_flag"
+          android:layout_below="@+id/CurrencyBuy"
+            android:textColor="#FFFFFF"
+                />
+
+    </RelativeLayout>
+ 
+
+
+
 </LinearLayout>

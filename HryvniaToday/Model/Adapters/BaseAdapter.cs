@@ -30,7 +30,6 @@ namespace CurrencyApplication.Adapters
             BankViewHolder vh = holder as BankViewHolder;
 
             reslist = BankRepository.GetBanksData();
-          
 
             vh.Image.SetImageResource(reslist.ElementAt(position).BankLogo);
             vh.BankName.Text = reslist.ElementAt(position).Title;

@@ -36,6 +36,30 @@ namespace HryvniaToday
             // List view adapter
             List<Currency> bankcurrencyList = new List<Currency>();
 
+            foreach (Currency itemCurrency in selectedBank.Currencies)
+            {
+                if (itemCurrency.Id == "USD")
+                {
+                    itemCurrency.CurrencyLogo = Resource.Drawable.USD;
+                }
+                if (itemCurrency.Id == "EUR")
+                {
+                    itemCurrency.CurrencyLogo = Resource.Drawable.EUR;
+                }
+                if (itemCurrency.Id == "RUB")
+                {
+                    itemCurrency.CurrencyLogo = Resource.Drawable.RUB;
+                }
+                if (itemCurrency.Id == "PLN")
+                {
+                    itemCurrency.CurrencyLogo = Resource.Drawable.PLN;
+                }
+                if (itemCurrency.Id == "GBP")
+                {
+                    itemCurrency.CurrencyLogo = Resource.Drawable.GBP;
+                }
+            }
+
             int id = 0;
             foreach (Currency itemCurrency in selectedBank.Currencies)
             {
