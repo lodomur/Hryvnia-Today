@@ -9,6 +9,7 @@ using HryvniaToday.Model.ViewModels;
 using Microcharts;
 using Microcharts.Droid;
 using SkiaSharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -19,7 +20,7 @@ namespace HryvniaToday
     {
 
         public PointChart pc = new PointChart();
-       
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -31,59 +32,59 @@ namespace HryvniaToday
             SetContentView(Resource.Layout.ChartRatesView);
 
             // USD sell
-            createChartByfor_USD_sell();
-           
+            createChartByfor_USD_sell("USD");
+
             // USD buy
-            createChartByfor_USD_buy();
+            createChartByfor_USD_buy("USD");
 
             // EUR sell
-            createChartByfor_EUR_sell();
+            createChartByfor_EUR_sell("EUR");
 
             // EUR buy
-            createChartByfor_EUR_buy();
+            createChartByfor_EUR_buy("EUR");
 
             // PLN sell
-            createChartByfor_PLN_sell();
+            createChartByfor_PLN_sell("PLN");
 
             // PLN buy
-            createChartByfor_PLN_buy();
+            createChartByfor_PLN_buy("PLN");
 
             // RUB sell
-            createChartByfor_RUB_sell();
+            createChartByfor_RUB_sell("RUB");
 
             // RUB buy
-            createChartByfor_RUB_buy();
+            createChartByfor_RUB_buy("RUB");
 
             // Toolbar
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbarCurrencyList);
             SetActionBar(toolbar);
             ActionBar.Title = "Візуалізація курсів";
 
-            Typeface type = Typeface.CreateFromAsset(this.Assets, "Oswald-Regular.ttf");
+            //Typeface type = Typeface.CreateFromAsset(this.Assets, "Oswald-Regular.ttf");
 
-            var USDRateTextView_sell = FindViewById<TextView>(Resource.Id.USDRateTextView_sell);
-            USDRateTextView_sell.SetTypeface(type, TypefaceStyle.Normal);
+            //var USDRateTextView_sell = FindViewById<TextView>(Resource.Id.USDRateTextView_sell);
+            //USDRateTextView_sell.SetTypeface(type, TypefaceStyle.Normal);
 
-            var USDRateTextView_buy = FindViewById<TextView>(Resource.Id.USDRateTextView_buy);
-            USDRateTextView_buy.SetTypeface(type, TypefaceStyle.Normal);
+            //var USDRateTextView_buy = FindViewById<TextView>(Resource.Id.USDRateTextView_buy);
+            //USDRateTextView_buy.SetTypeface(type, TypefaceStyle.Normal);
 
-            var EURRateTextView_buy = FindViewById<TextView>(Resource.Id.EURRateTextView_buy);
-            EURRateTextView_buy.SetTypeface(type, TypefaceStyle.Normal);
+            //var EURRateTextView_buy = FindViewById<TextView>(Resource.Id.EURRateTextView_buy);
+            //EURRateTextView_buy.SetTypeface(type, TypefaceStyle.Normal);
 
-            var EURRateTextView_sell = FindViewById<TextView>(Resource.Id.EURRateTextView_sell);
-            EURRateTextView_sell.SetTypeface(type, TypefaceStyle.Normal);
+            //var EURRateTextView_sell = FindViewById<TextView>(Resource.Id.EURRateTextView_sell);
+            //EURRateTextView_sell.SetTypeface(type, TypefaceStyle.Normal);
 
-            var RUBRateTextView_buy = FindViewById<TextView>(Resource.Id.RUBRateTextView_buy);
-            RUBRateTextView_buy.SetTypeface(type, TypefaceStyle.Normal);
+            //var RUBRateTextView_buy = FindViewById<TextView>(Resource.Id.RUBRateTextView_buy);
+            //RUBRateTextView_buy.SetTypeface(type, TypefaceStyle.Normal);
 
-            var RUBRateTextView_sell = FindViewById<TextView>(Resource.Id.RUBRateTextView_sell);
-            RUBRateTextView_sell.SetTypeface(type, TypefaceStyle.Normal);
+            //var RUBRateTextView_sell = FindViewById<TextView>(Resource.Id.RUBRateTextView_sell);
+            //RUBRateTextView_sell.SetTypeface(type, TypefaceStyle.Normal);
 
-            var PLNRateTextView_buy = FindViewById<TextView>(Resource.Id.PLNRateTextView_buy);
-            PLNRateTextView_buy.SetTypeface(type, TypefaceStyle.Normal);
+            //var PLNRateTextView_buy = FindViewById<TextView>(Resource.Id.PLNRateTextView_buy);
+            //PLNRateTextView_buy.SetTypeface(type, TypefaceStyle.Normal);
 
-            var PLNRateTextView_sell = FindViewById<TextView>(Resource.Id.PLNRateTextView_sell);
-            PLNRateTextView_sell.SetTypeface(type, TypefaceStyle.Normal);
+            //var PLNRateTextView_sell = FindViewById<TextView>(Resource.Id.PLNRateTextView_sell);
+            //PLNRateTextView_sell.SetTypeface(type, TypefaceStyle.Normal);
 
 
         }
@@ -110,34 +111,44 @@ namespace HryvniaToday
         // Get USD chart on view
 
         // Methoda createChartByfor_USD_sell
-        public void createChartByfor_USD_sell()
+        public void createChartByfor_USD_sell(string currencyName)
         {
 
-            List<Entry> entryList_USD_sell = new List<Entry>();
-
-            // Get Data by Currency USD
+            List<Entry> entryList = new List<Entry>();
             List<CurrenciesRatesForBankViewModel> listData = BankRepository.GetBanksData().Select(x => new CurrenciesRatesForBankViewModel
             {
                 BankName = x.Title,
-                CurrenciesRates = x.Currencies.Where(z => z.Id == "USD").ToList()
+                CurrenciesRates = x.Currencies.Where(z => z.Id == currencyName).ToList()
             }).Where(y => y.CurrenciesRates.Count() > 0).ToList();
+
+            // Type rate
+            List<RateValueAndBankNameViewModel> sourceTable = listData.Select(x => new RateValueAndBankNameViewModel
+            {
+                BankName = x.BankName,
+                CurrencyRateSingle = float.Parse(x.CurrenciesRates.Select(f => f.Sell).FirstOrDefault())
+            }).OrderBy(x => x.CurrencyRateSingle).ToList();
 
             int counter = 0;
             string color = "";
-            // USD
-            foreach (CurrenciesRatesForBankViewModel Bankitem in listData)
+
+
+            int start_1 = (int)sourceTable.Count() / 3;
+            int start_2 = start_1 * 2;
+
+
+            foreach (RateValueAndBankNameViewModel Bankitem in sourceTable)
             {
                 counter++;
 
-                if (counter <= 5)
+                if (counter <= start_1)
                 {
                     color = "#266489";
                 }
-                if (counter > 5 && counter <= 10)
+                if (counter > start_1 && counter <= start_2)
                 {
                     color = "#68B9C0";
                 }
-                if (counter > 10)
+                if (counter > start_2)
                 {
                     color = "#90D585";
                 }
@@ -152,63 +163,71 @@ namespace HryvniaToday
                     Bankitem.BankName = "Креді Агріколь Б.";
                 }
 
-                entryList_USD_sell.Add(new Entry(float.Parse(Bankitem.CurrenciesRates.Select(x => x.Sell).FirstOrDefault()))
+                entryList.Add(new Entry(Bankitem.CurrencyRateSingle)
                 {
                     Label = Bankitem.BankName,
-                    ValueLabel = Bankitem.CurrenciesRates.Select(x => x.Sell).FirstOrDefault().Substring(0, 6),
+                    ValueLabel = string.Format("{0:F3}", Bankitem.CurrencyRateSingle),
                     Color = SKColor.Parse(color),
                     TextColor = SKColor.Parse(color),
                 });
             }
 
-            // USD chart config
-            var chart_USD = new BarChart()
+            var chart = new LineChart()
             {
-                Entries = entryList_USD_sell,
-                MaxValue = entryList_USD_sell.Select(x => x.Value).Max(),
-                MinValue = entryList_USD_sell.Select(x => x.Value).Min(),
+                Entries = entryList,
+                MaxValue = entryList.Select(x => x.Value).Max(),
+                MinValue = entryList.Select(x => x.Value).Min(),
                 ValueLabelOrientation = pc.ValueLabelOrientation,
                 LabelOrientation = pc.LabelOrientation,
-                LabelTextSize = 17
+                LabelTextSize = 18,
             };
-            chart_USD.BackgroundColor = SKColor.Parse("#FFFFFF");
+
+            chart.BackgroundColor = SKColor.Parse("#FFFFFF");
 
             var chartView = FindViewById<ChartView>(Resource.Id.chartViewUSD_sell);
-            chartView.Chart = chart_USD;
+            chartView.Chart = chart;
 
         }
 
         // Methoda createChartByfor_USD_buy
-        public void createChartByfor_USD_buy()
+        public void createChartByfor_USD_buy(string currencyName)
         {
 
-            List<Entry> entryList_USD_buy = new List<Entry>();
-
-            // Get Data by Currency USD
+            List<Entry> entryList = new List<Entry>();
             List<CurrenciesRatesForBankViewModel> listData = BankRepository.GetBanksData().Select(x => new CurrenciesRatesForBankViewModel
             {
                 BankName = x.Title,
-                CurrenciesRates = x.Currencies.Where(z => z.Id == "USD").ToList()
+                CurrenciesRates = x.Currencies.Where(z => z.Id == currencyName).ToList()
             }).Where(y => y.CurrenciesRates.Count() > 0).ToList();
+
+            // Type rate
+            List<RateValueAndBankNameViewModel> sourceTable = listData.Select(x => new RateValueAndBankNameViewModel
+            {
+                BankName = x.BankName,
+                CurrencyRateSingle = float.Parse(x.CurrenciesRates.Select(f => f.Buy).FirstOrDefault())
+            }).OrderBy(x => x.CurrencyRateSingle).ToList();
 
             int counter = 0;
             string color = "";
-            // USD
-            foreach (CurrenciesRatesForBankViewModel Bankitem in listData)
+
+            int start_1 = (int)sourceTable.Count() / 3;
+            int start_2 = start_1 * 2;
+
+            foreach (RateValueAndBankNameViewModel Bankitem in sourceTable)
             {
                 counter++;
 
-                if (counter <= 5)
+                if (counter <= start_1)
                 {
-                    color = "#266489";
+                    color = "#90D585";
                 }
-                if (counter > 5 && counter <= 10)
+                if (counter > start_1 && counter <= start_2)
                 {
                     color = "#68B9C0";
                 }
-                if (counter > 10)
+                if (counter > start_2)
                 {
-                    color = "#90D585";
+                    color = "#266489";
                 }
 
                 if (Bankitem.BankName.Equals("Райффайзен Банк Аваль"))
@@ -221,29 +240,29 @@ namespace HryvniaToday
                     Bankitem.BankName = "Креді Агріколь Б.";
                 }
 
-                entryList_USD_buy.Add(new Entry(float.Parse(Bankitem.CurrenciesRates.Select(x => x.Buy).FirstOrDefault()))
+                entryList.Add(new Entry(Bankitem.CurrencyRateSingle)
                 {
                     Label = Bankitem.BankName,
-                    ValueLabel = Bankitem.CurrenciesRates.Select(x => x.Buy).FirstOrDefault().Substring(0, 6),
+                    ValueLabel = string.Format("{0:F3}", Bankitem.CurrencyRateSingle),
                     Color = SKColor.Parse(color),
                     TextColor = SKColor.Parse(color),
                 });
             }
 
-
-            // USD chart config
-            var chart_USD = new LineChart()
+            var chart = new LineChart()
             {
-                Entries = entryList_USD_buy,
-                MaxValue = entryList_USD_buy.Select(x => x.Value).Max(),
-                MinValue = entryList_USD_buy.Select(x => x.Value).Min(),
+                Entries = entryList,
+                MaxValue = entryList.Select(x => x.Value).Max(),
+                MinValue = entryList.Select(x => x.Value).Min(),
                 ValueLabelOrientation = pc.ValueLabelOrientation,
                 LabelOrientation = pc.LabelOrientation,
-                LabelTextSize = 17
+                LabelTextSize = 18,
             };
-            chart_USD.BackgroundColor = SKColor.Parse("#FFFFFF");
+
+            chart.BackgroundColor = SKColor.Parse("#FFFFFF");
+
             var chartView = FindViewById<ChartView>(Resource.Id.chartViewUSD_buy);
-            chartView.Chart = chart_USD;
+            chartView.Chart = chart;
 
         }
         #endregion
@@ -252,34 +271,44 @@ namespace HryvniaToday
         // Get EUR chart on view
 
         // Methoda createChartByfor_EUR_sell
-        public void createChartByfor_EUR_sell()
+        public void createChartByfor_EUR_sell(string currencyName)
         {
 
-            List<Entry> entryList_EUR_sell = new List<Entry>();
-
-            // Get Data by Currency EUR
+            List<Entry> entryList = new List<Entry>();
             List<CurrenciesRatesForBankViewModel> listData = BankRepository.GetBanksData().Select(x => new CurrenciesRatesForBankViewModel
             {
                 BankName = x.Title,
-                CurrenciesRates = x.Currencies.Where(z => z.Id == "EUR").ToList()
+                CurrenciesRates = x.Currencies.Where(z => z.Id == currencyName).ToList()
             }).Where(y => y.CurrenciesRates.Count() > 0).ToList();
+
+            // Type rate
+            List<RateValueAndBankNameViewModel> sourceTable = listData.Select(x => new RateValueAndBankNameViewModel
+            {
+                BankName = x.BankName,
+                CurrencyRateSingle = float.Parse(x.CurrenciesRates.Select(f => f.Sell).FirstOrDefault())
+            }).OrderBy(x => x.CurrencyRateSingle).ToList();
 
             int counter = 0;
             string color = "";
-            // EUR
-            foreach (CurrenciesRatesForBankViewModel Bankitem in listData)
+
+
+            int start_1 = (int)sourceTable.Count() / 3;
+            int start_2 = start_1 * 2;
+
+
+            foreach (RateValueAndBankNameViewModel Bankitem in sourceTable)
             {
                 counter++;
 
-                if (counter <= 5)
+                if (counter <= start_1)
                 {
                     color = "#266489";
                 }
-                if (counter > 5 && counter <= 10)
+                if (counter > start_1 && counter <= start_2)
                 {
                     color = "#68B9C0";
                 }
-                if (counter > 10)
+                if (counter > start_2)
                 {
                     color = "#90D585";
                 }
@@ -294,64 +323,71 @@ namespace HryvniaToday
                     Bankitem.BankName = "Креді Агріколь Б.";
                 }
 
-                entryList_EUR_sell.Add(new Entry(float.Parse(Bankitem.CurrenciesRates.Select(x => x.Sell).FirstOrDefault()))
+                entryList.Add(new Entry(Bankitem.CurrencyRateSingle)
                 {
                     Label = Bankitem.BankName,
-                    ValueLabel = Bankitem.CurrenciesRates.Select(x => x.Sell).FirstOrDefault().Substring(0, 6),
+                    ValueLabel = string.Format("{0:F3}", Bankitem.CurrencyRateSingle),
                     Color = SKColor.Parse(color),
                     TextColor = SKColor.Parse(color),
                 });
             }
 
-
-            // EUR chart config
-            var chart_EUR = new LineChart()
+            var chart = new LineChart()
             {
-                Entries = entryList_EUR_sell,
-                MaxValue = entryList_EUR_sell.Select(x => x.Value).Max(),
-                MinValue = entryList_EUR_sell.Select(x => x.Value).Min(),
+                Entries = entryList,
+                MaxValue = entryList.Select(x => x.Value).Max(),
+                MinValue = entryList.Select(x => x.Value).Min(),
                 ValueLabelOrientation = pc.ValueLabelOrientation,
                 LabelOrientation = pc.LabelOrientation,
-                LabelTextSize = 17
+                LabelTextSize = 18,
             };
-            chart_EUR.BackgroundColor = SKColor.Parse("#FFFFFF");
+
+            chart.BackgroundColor = SKColor.Parse("#FFFFFF");
+
             var chartView = FindViewById<ChartView>(Resource.Id.chartViewEUR_sell);
-            chartView.Chart = chart_EUR;
+            chartView.Chart = chart;
 
         }
 
 
         // Methoda createChartByfor_EUR_buy
-        public void createChartByfor_EUR_buy()
+        public void createChartByfor_EUR_buy(string currencyName)
         {
-
-            List<Entry> entryList_EUR_buy = new List<Entry>();
-
-            // Get Data by Currency EUR
+            List<Entry> entryList = new List<Entry>();
             List<CurrenciesRatesForBankViewModel> listData = BankRepository.GetBanksData().Select(x => new CurrenciesRatesForBankViewModel
             {
                 BankName = x.Title,
-                CurrenciesRates = x.Currencies.Where(z => z.Id == "EUR").ToList()
+                CurrenciesRates = x.Currencies.Where(z => z.Id == currencyName).ToList()
             }).Where(y => y.CurrenciesRates.Count() > 0).ToList();
+
+            // Type rate
+            List<RateValueAndBankNameViewModel> sourceTable = listData.Select(x => new RateValueAndBankNameViewModel
+            {
+                BankName = x.BankName,
+                CurrencyRateSingle = float.Parse(x.CurrenciesRates.Select(f => f.Buy).FirstOrDefault())
+            }).OrderBy(x => x.CurrencyRateSingle).ToList();
 
             int counter = 0;
             string color = "";
-            // EUR
-            foreach (CurrenciesRatesForBankViewModel Bankitem in listData)
+
+            int start_1 = (int)sourceTable.Count() / 3;
+            int start_2 = start_1 * 2;
+
+            foreach (RateValueAndBankNameViewModel Bankitem in sourceTable)
             {
                 counter++;
 
-                if (counter <= 5)
+                if (counter <= start_1)
                 {
-                    color = "#266489";
+                    color = "#90D585";
                 }
-                if (counter > 5 && counter <= 10)
+                if (counter > start_1 && counter <= start_2)
                 {
                     color = "#68B9C0";
                 }
-                if (counter > 10)
+                if (counter > start_2)
                 {
-                    color = "#90D585";
+                    color = "#266489";
                 }
 
                 if (Bankitem.BankName.Equals("Райффайзен Банк Аваль"))
@@ -364,30 +400,29 @@ namespace HryvniaToday
                     Bankitem.BankName = "Креді Агріколь Б.";
                 }
 
-                entryList_EUR_buy.Add(new Entry(float.Parse(Bankitem.CurrenciesRates.Select(x => x.Buy).FirstOrDefault()))
+                entryList.Add(new Entry(Bankitem.CurrencyRateSingle)
                 {
                     Label = Bankitem.BankName,
-                    ValueLabel = Bankitem.CurrenciesRates.Select(x => x.Buy).FirstOrDefault().Substring(0, 6),
+                    ValueLabel = string.Format("{0:F3}", Bankitem.CurrencyRateSingle),
                     Color = SKColor.Parse(color),
                     TextColor = SKColor.Parse(color),
                 });
             }
 
-
-            // EUR chart config
-            var chart_EUR = new LineChart()
+            var chart = new LineChart()
             {
-                Entries = entryList_EUR_buy,
-                MaxValue = entryList_EUR_buy.Select(x => x.Value).Max(),
-                MinValue = entryList_EUR_buy.Select(x => x.Value).Min(),
+                Entries = entryList,
+                MaxValue = entryList.Select(x => x.Value).Max(),
+                MinValue = entryList.Select(x => x.Value).Min(),
                 ValueLabelOrientation = pc.ValueLabelOrientation,
                 LabelOrientation = pc.LabelOrientation,
-                LabelTextSize = 17
+                LabelTextSize = 18,
             };
-            chart_EUR.BackgroundColor = SKColor.Parse("#FFFFFF");
-            var chartView = FindViewById<ChartView>(Resource.Id.chartViewEUR_buy);
-            chartView.Chart = chart_EUR;
 
+            chart.BackgroundColor = SKColor.Parse("#FFFFFF");
+
+            var chartView = FindViewById<ChartView>(Resource.Id.chartViewEUR_buy);
+            chartView.Chart = chart;
         }
         #endregion
 
@@ -395,34 +430,44 @@ namespace HryvniaToday
         // Get PLN chart on view
 
         // Methoda createChartByfor_PLN_sell
-        public void createChartByfor_PLN_sell()
+        public void createChartByfor_PLN_sell(string currencyName)
         {
 
-            List<Entry> entryList_PLN_sell = new List<Entry>();
-
-            // Get Data by Currency PLN
+            List<Entry> entryList = new List<Entry>();
             List<CurrenciesRatesForBankViewModel> listData = BankRepository.GetBanksData().Select(x => new CurrenciesRatesForBankViewModel
             {
                 BankName = x.Title,
-                CurrenciesRates = x.Currencies.Where(z => z.Id == "PLN").ToList()
+                CurrenciesRates = x.Currencies.Where(z => z.Id == currencyName).ToList()
             }).Where(y => y.CurrenciesRates.Count() > 0).ToList();
+
+            // Type rate
+            List<RateValueAndBankNameViewModel> sourceTable = listData.Select(x => new RateValueAndBankNameViewModel
+            {
+                BankName = x.BankName,
+                CurrencyRateSingle = float.Parse(x.CurrenciesRates.Select(f => f.Sell).FirstOrDefault())
+            }).OrderBy(x => x.CurrencyRateSingle).ToList();
 
             int counter = 0;
             string color = "";
-            // PLN
-            foreach (CurrenciesRatesForBankViewModel Bankitem in listData)
+
+
+            int start_1 = (int)sourceTable.Count() / 3;
+            int start_2 = start_1 * 2;
+
+
+            foreach (RateValueAndBankNameViewModel Bankitem in sourceTable)
             {
                 counter++;
 
-                if (counter == 1)
+                if (counter <= start_1)
                 {
                     color = "#266489";
                 }
-                if (counter == 2)
+                if (counter > start_1 && counter <= start_2)
                 {
                     color = "#68B9C0";
                 }
-                if ( counter >= 3)
+                if (counter > start_2)
                 {
                     color = "#90D585";
                 }
@@ -437,64 +482,72 @@ namespace HryvniaToday
                     Bankitem.BankName = "Креді Агріколь Б.";
                 }
 
-                entryList_PLN_sell.Add(new Entry(float.Parse(Bankitem.CurrenciesRates.Select(x => x.Sell).FirstOrDefault()))
+                entryList.Add(new Entry(Bankitem.CurrencyRateSingle)
                 {
                     Label = Bankitem.BankName,
-                    ValueLabel = Bankitem.CurrenciesRates.Select(x => x.Sell).FirstOrDefault().Substring(0, 6),
+                    ValueLabel = string.Format("{0:F3}", Bankitem.CurrencyRateSingle),
                     Color = SKColor.Parse(color),
                     TextColor = SKColor.Parse(color),
                 });
             }
 
-
-            // PLN chart config
-            var chart_PLN = new LineChart()
+            var chart = new LineChart()
             {
-                Entries = entryList_PLN_sell,
-                MaxValue = entryList_PLN_sell.Select(x => x.Value).Max(),
-                MinValue = entryList_PLN_sell.Select(x => x.Value).Min(),
+                Entries = entryList,
+                MaxValue = entryList.Select(x => x.Value).Max(),
+                MinValue = entryList.Select(x => x.Value).Min(),
                 ValueLabelOrientation = pc.ValueLabelOrientation,
                 LabelOrientation = pc.LabelOrientation,
-                LabelTextSize = 17
+                LabelTextSize = 18,
             };
-            chart_PLN.BackgroundColor = SKColor.Parse("#FFFFFF");
+
+            chart.BackgroundColor = SKColor.Parse("#FFFFFF");
+
             var chartView = FindViewById<ChartView>(Resource.Id.chartViewPLN_sell);
-            chartView.Chart = chart_PLN;
+            chartView.Chart = chart;
 
         }
 
 
         // Methoda createChartByfor_PLN_buy
-        public void createChartByfor_PLN_buy()
+        public void createChartByfor_PLN_buy(string currencyName)
         {
 
-            List<Entry> entryList_PLN_buy = new List<Entry>();
-
-            // Get Data by Currency PLN
+            List<Entry> entryList = new List<Entry>();
             List<CurrenciesRatesForBankViewModel> listData = BankRepository.GetBanksData().Select(x => new CurrenciesRatesForBankViewModel
             {
                 BankName = x.Title,
-                CurrenciesRates = x.Currencies.Where(z => z.Id == "PLN").ToList()
+                CurrenciesRates = x.Currencies.Where(z => z.Id == currencyName).ToList()
             }).Where(y => y.CurrenciesRates.Count() > 0).ToList();
+
+            // Type rate
+            List<RateValueAndBankNameViewModel> sourceTable = listData.Select(x => new RateValueAndBankNameViewModel
+            {
+                BankName = x.BankName,
+                CurrencyRateSingle = float.Parse(x.CurrenciesRates.Select(f => f.Buy).FirstOrDefault())
+            }).OrderBy(x => x.CurrencyRateSingle).ToList();
 
             int counter = 0;
             string color = "";
-            // PLN
-            foreach (CurrenciesRatesForBankViewModel Bankitem in listData)
+
+            int start_1 = (int)sourceTable.Count() / 3;
+            int start_2 = start_1 * 2;
+
+            foreach (RateValueAndBankNameViewModel Bankitem in sourceTable)
             {
                 counter++;
 
-                if (counter == 1)
+                if (counter <= start_1)
                 {
-                    color = "#266489";
+                    color = "#90D585";
                 }
-                if (counter == 2)
+                if (counter > start_1 && counter <= start_2)
                 {
                     color = "#68B9C0";
                 }
-                if (counter >= 3)
+                if (counter > start_2)
                 {
-                    color = "#90D585";
+                    color = "#266489";
                 }
 
                 if (Bankitem.BankName.Equals("Райффайзен Банк Аваль"))
@@ -507,30 +560,29 @@ namespace HryvniaToday
                     Bankitem.BankName = "Креді Агріколь Б.";
                 }
 
-                entryList_PLN_buy.Add(new Entry(float.Parse(Bankitem.CurrenciesRates.Select(x => x.Buy).FirstOrDefault()))
+                entryList.Add(new Entry(Bankitem.CurrencyRateSingle)
                 {
                     Label = Bankitem.BankName,
-                    ValueLabel = Bankitem.CurrenciesRates.Select(x => x.Buy).FirstOrDefault().Substring(0, 6),
+                    ValueLabel = string.Format("{0:F3}", Bankitem.CurrencyRateSingle),
                     Color = SKColor.Parse(color),
                     TextColor = SKColor.Parse(color),
                 });
             }
 
-
-            // PLN chart config
-            var chart_PLN = new LineChart()
+            var chart = new LineChart()
             {
-                Entries = entryList_PLN_buy,
-                MaxValue = entryList_PLN_buy.Select(x => x.Value).Max(),
-                MinValue = entryList_PLN_buy.Select(x => x.Value).Min(),
+                Entries = entryList,
+                MaxValue = entryList.Select(x => x.Value).Max(),
+                MinValue = entryList.Select(x => x.Value).Min(),
                 ValueLabelOrientation = pc.ValueLabelOrientation,
                 LabelOrientation = pc.LabelOrientation,
-                LabelTextSize = 17
+                LabelTextSize = 18,
             };
-            chart_PLN.BackgroundColor = SKColor.Parse("#FFFFFF");
-            var chartView = FindViewById<ChartView>(Resource.Id.chartViewPLN_buy);
-            chartView.Chart = chart_PLN;
 
+            chart.BackgroundColor = SKColor.Parse("#FFFFFF");
+
+            var chartView = FindViewById<ChartView>(Resource.Id.chartViewPLN_buy);
+            chartView.Chart = chart;
         }
         #endregion
 
@@ -538,34 +590,44 @@ namespace HryvniaToday
         // Get RUB chart on view
 
         // Methoda createChartByfor_RUB_sell
-        public void createChartByfor_RUB_sell()
+        public void createChartByfor_RUB_sell(string currencyName)
         {
 
-            List<Entry> entryList_RUB_sell = new List<Entry>();
-
-            // Get Data by Currency RUB
+            List<Entry> entryList = new List<Entry>();
             List<CurrenciesRatesForBankViewModel> listData = BankRepository.GetBanksData().Select(x => new CurrenciesRatesForBankViewModel
             {
                 BankName = x.Title,
-                CurrenciesRates = x.Currencies.Where(z => z.Id == "RUB").ToList()
+                CurrenciesRates = x.Currencies.Where(z => z.Id == currencyName).ToList()
             }).Where(y => y.CurrenciesRates.Count() > 0).ToList();
+
+            // Type rate
+            List<RateValueAndBankNameViewModel> sourceTable = listData.Select(x => new RateValueAndBankNameViewModel
+            {
+                BankName = x.BankName,
+                CurrencyRateSingle = float.Parse(x.CurrenciesRates.Select(f => f.Sell).FirstOrDefault())
+            }).OrderBy(x => x.CurrencyRateSingle).ToList();
 
             int counter = 0;
             string color = "";
-            // RUB
-            foreach (CurrenciesRatesForBankViewModel Bankitem in listData)
+
+
+            int start_1 = (int)sourceTable.Count() / 3;
+            int start_2 = start_1 * 2;
+
+
+            foreach (RateValueAndBankNameViewModel Bankitem in sourceTable)
             {
                 counter++;
 
-                if (counter <= 5)
+                if (counter <= start_1)
                 {
                     color = "#266489";
                 }
-                if (counter > 5 && counter <= 10)
+                if (counter > start_1 && counter <= start_2)
                 {
                     color = "#68B9C0";
                 }
-                if (counter > 10)
+                if (counter > start_2)
                 {
                     color = "#90D585";
                 }
@@ -580,64 +642,75 @@ namespace HryvniaToday
                     Bankitem.BankName = "Креді Агріколь Б.";
                 }
 
-                entryList_RUB_sell.Add(new Entry(float.Parse(Bankitem.CurrenciesRates.Select(x => x.Sell).FirstOrDefault()))
+                entryList.Add(new Entry(Bankitem.CurrencyRateSingle)
                 {
                     Label = Bankitem.BankName,
-                    ValueLabel = Bankitem.CurrenciesRates.Select(x => x.Sell).FirstOrDefault().Substring(0, 6),
+                    ValueLabel = string.Format("{0:F3}", Bankitem.CurrencyRateSingle),
                     Color = SKColor.Parse(color),
                     TextColor = SKColor.Parse(color),
                 });
             }
 
-
-            // RUB chart config
-            var chart_RUB = new LineChart()
+            if (entryList.Count > 0)
             {
-                Entries = entryList_RUB_sell,
-                MaxValue = entryList_RUB_sell.Select(x => x.Value).Max(),
-                MinValue = entryList_RUB_sell.Select(x => x.Value).Min(),
-                ValueLabelOrientation = pc.ValueLabelOrientation,
-                LabelOrientation = pc.LabelOrientation,
-                LabelTextSize = 17
-            };
-            chart_RUB.BackgroundColor = SKColor.Parse("#FFFFFF");
-            var chartView = FindViewById<ChartView>(Resource.Id.chartViewRUB_sell);
-            chartView.Chart = chart_RUB;
+                var chart = new LineChart()
+                {
+                    Entries = entryList,
+                    MaxValue = entryList.Select(x => x.Value).Max(),
+                    MinValue = entryList.Select(x => x.Value).Min(),
+                    ValueLabelOrientation = pc.ValueLabelOrientation,
+                    LabelOrientation = pc.LabelOrientation,
+                    LabelTextSize = 18,
+                };
 
+                chart.BackgroundColor = SKColor.Parse("#FFFFFF");
+
+                var chartView = FindViewById<ChartView>(Resource.Id.chartViewRUB_sell);
+                chartView.Chart = chart;
+
+            }
         }
 
 
         // Methoda createChartByfor_RUB_buy
-        public void createChartByfor_RUB_buy()
+        public void createChartByfor_RUB_buy(string currencyName)
         {
 
-            List<Entry> entryList_RUB_buy = new List<Entry>();
-
-            // Get Data by Currency RUB
+            List<Entry> entryList = new List<Entry>();
             List<CurrenciesRatesForBankViewModel> listData = BankRepository.GetBanksData().Select(x => new CurrenciesRatesForBankViewModel
             {
                 BankName = x.Title,
-                CurrenciesRates = x.Currencies.Where(z => z.Id == "RUB").ToList()
+                CurrenciesRates = x.Currencies.Where(z => z.Id == currencyName).ToList()
             }).Where(y => y.CurrenciesRates.Count() > 0).ToList();
+
+            // Type rate
+            List<RateValueAndBankNameViewModel> sourceTable = listData.Select(x => new RateValueAndBankNameViewModel
+            {
+                BankName = x.BankName,
+                CurrencyRateSingle = float.Parse(x.CurrenciesRates.Select(f => f.Buy).FirstOrDefault())
+            }).OrderBy(x => x.CurrencyRateSingle).ToList();
 
             int counter = 0;
             string color = "";
-            // RUB
-            foreach (CurrenciesRatesForBankViewModel Bankitem in listData)
+
+            int start_1 = (int)sourceTable.Count() / 3;
+            int start_2 = start_1 * 2;
+
+            foreach (RateValueAndBankNameViewModel Bankitem in sourceTable)
             {
                 counter++;
 
-                if (counter <= 5)
+                if (counter <= start_1)
                 {
-                    color = "#266489";
+                    color = "#90D585";
                 }
-                if (counter > 5 && counter <= 10)
+                if (counter > start_1 && counter <= start_2)
                 {
                     color = "#68B9C0";
                 }
-                if (counter > 10)
+                if (counter > start_2)
                 {
-                    color = "#90D585";
+                    color = "#266489";
                 }
 
                 if (Bankitem.BankName.Equals("Райффайзен Банк Аваль"))
@@ -650,30 +723,33 @@ namespace HryvniaToday
                     Bankitem.BankName = "Креді Агріколь Б.";
                 }
 
-                entryList_RUB_buy.Add(new Entry(float.Parse(Bankitem.CurrenciesRates.Select(x => x.Buy).FirstOrDefault()))
+                entryList.Add(new Entry(Bankitem.CurrencyRateSingle)
                 {
                     Label = Bankitem.BankName,
-                    ValueLabel = Bankitem.CurrenciesRates.Select(x => x.Buy).FirstOrDefault().Substring(0, 6),
+                    ValueLabel = string.Format("{0:F3}", Bankitem.CurrencyRateSingle),
                     Color = SKColor.Parse(color),
                     TextColor = SKColor.Parse(color),
                 });
             }
 
 
-            // RUB chart config
-            var chart_RUB = new LineChart()
+            if (entryList.Count > 0)
             {
-                Entries = entryList_RUB_buy,
-                MaxValue = entryList_RUB_buy.Select(x => x.Value).Max(),
-                MinValue = entryList_RUB_buy.Select(x => x.Value).Min(),
-                ValueLabelOrientation = pc.ValueLabelOrientation,
-                LabelOrientation = pc.LabelOrientation,
-                LabelTextSize = 17
+                var chart = new LineChart()
+                {
+                    Entries = entryList,
+                    MaxValue = entryList.Select(x => x.Value).Max(),
+                    MinValue = entryList.Select(x => x.Value).Min(),
+                    ValueLabelOrientation = pc.ValueLabelOrientation,
+                    LabelOrientation = pc.LabelOrientation,
+                    LabelTextSize = 18,
+                };
 
-            };
-            chart_RUB.BackgroundColor = SKColor.Parse("#FFFFFF");
-            var chartView = FindViewById<ChartView>(Resource.Id.chartViewRUB_buy);
-            chartView.Chart = chart_RUB;
+                chart.BackgroundColor = SKColor.Parse("#FFFFFF");
+
+                var chartView = FindViewById<ChartView>(Resource.Id.chartViewRUB_buy);
+                chartView.Chart = chart;
+            }
 
         }
         #endregion

@@ -8,7 +8,7 @@
       android:id="@+id/BankImageCardView"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:background="#FFFFFF"
+      android:background="#00695c"
       android:foreground="?android:attr/selectableItemBackground"
       android:clickable="false"
       android:layout_margin="8dp">
@@ -28,7 +28,7 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:orientation="vertical"
-          android:background="#00695c"
+          android:background="#00796b"
           android:paddingTop="5dp">
         <TextView
             android:layout_width="match_parent"

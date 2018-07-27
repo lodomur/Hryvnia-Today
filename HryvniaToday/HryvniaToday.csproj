@@ -119,6 +119,7 @@
     <Compile Include="Model\Repository\BankRepository.cs" />
     <Compile Include="Model\Repository\BankViewHolder.cs" />
     <Compile Include="Model\ViewModels\CurrenciesRatesForBankViewModel.cs" />
+    <Compile Include="Model\ViewModels\RateValueAndBankNameViewModel.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
