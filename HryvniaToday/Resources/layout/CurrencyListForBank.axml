@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px"
-    android:background="#00796b">
+    android:background="#FFFFFF">
     <include
         android:id="@+id/toolbarCurrencyList"
         layout="@layout/ToolbarCurrencyList" />

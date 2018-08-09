@@ -2127,160 +2127,292 @@ namespace HryvniaToday
 			public const int abc_vector_test = 2130837587;
 			
 			// aapt resource value: 0x7f020054
-			public const int alfa_Bank = 2130837588;
+			public const int AED = 2130837588;
 			
 			// aapt resource value: 0x7f020055
-			public const int avd_hide_password = 2130837589;
-			
-			// aapt resource value: 0x7f020082
-			public const int avd_hide_password_1 = 2130837634;
-			
-			// aapt resource value: 0x7f020083
-			public const int avd_hide_password_2 = 2130837635;
-			
-			// aapt resource value: 0x7f020084
-			public const int avd_hide_password_3 = 2130837636;
+			public const int alfa_Bank = 2130837589;
 			
 			// aapt resource value: 0x7f020056
-			public const int avd_show_password = 2130837590;
-			
-			// aapt resource value: 0x7f020085
-			public const int avd_show_password_1 = 2130837637;
-			
-			// aapt resource value: 0x7f020086
-			public const int avd_show_password_2 = 2130837638;
-			
-			// aapt resource value: 0x7f020087
-			public const int avd_show_password_3 = 2130837639;
+			public const int AMD = 2130837590;
 			
 			// aapt resource value: 0x7f020057
-			public const int bank_lviv = 2130837591;
+			public const int AUD = 2130837591;
 			
 			// aapt resource value: 0x7f020058
-			public const int creditagricol = 2130837592;
+			public const int avd_hide_password = 2130837592;
+			
+			// aapt resource value: 0x7f0200ae
+			public const int avd_hide_password_1 = 2130837678;
+			
+			// aapt resource value: 0x7f0200af
+			public const int avd_hide_password_2 = 2130837679;
+			
+			// aapt resource value: 0x7f0200b0
+			public const int avd_hide_password_3 = 2130837680;
 			
 			// aapt resource value: 0x7f020059
-			public const int design_bottom_navigation_item_background = 2130837593;
+			public const int avd_show_password = 2130837593;
+			
+			// aapt resource value: 0x7f0200b1
+			public const int avd_show_password_1 = 2130837681;
+			
+			// aapt resource value: 0x7f0200b2
+			public const int avd_show_password_2 = 2130837682;
+			
+			// aapt resource value: 0x7f0200b3
+			public const int avd_show_password_3 = 2130837683;
 			
 			// aapt resource value: 0x7f02005a
-			public const int design_fab_background = 2130837594;
+			public const int AZN = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int design_ic_visibility = 2130837595;
+			public const int backgroundgradientmain = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int design_ic_visibility_off = 2130837596;
+			public const int bank_lviv = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int design_password_eye = 2130837597;
+			public const int bg = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int design_snackbar_background = 2130837598;
+			public const int BGN = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int EUR = 2130837599;
+			public const int BRL = 2130837599;
 			
 			// aapt resource value: 0x7f020060
-			public const int GBP = 2130837600;
+			public const int BYN = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int idea_bank = 2130837601;
+			public const int CAD = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int kantor = 2130837602;
+			public const int CHF = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int kredobankpl = 2130837603;
+			public const int CLP = 2130837603;
 			
 			// aapt resource value: 0x7f020064
-			public const int misto_bank = 2130837604;
+			public const int CNY = 2130837604;
 			
 			// aapt resource value: 0x7f020065
-			public const int navigation_empty_icon = 2130837605;
+			public const int creditagricol = 2130837605;
 			
 			// aapt resource value: 0x7f020066
-			public const int notification_action_background = 2130837606;
+			public const int CZK = 2130837606;
 			
 			// aapt resource value: 0x7f020067
-			public const int notification_bg = 2130837607;
+			public const int design_bottom_navigation_item_background = 2130837607;
 			
 			// aapt resource value: 0x7f020068
-			public const int notification_bg_low = 2130837608;
+			public const int design_fab_background = 2130837608;
 			
 			// aapt resource value: 0x7f020069
-			public const int notification_bg_low_normal = 2130837609;
+			public const int design_ic_visibility = 2130837609;
 			
 			// aapt resource value: 0x7f02006a
-			public const int notification_bg_low_pressed = 2130837610;
+			public const int design_ic_visibility_off = 2130837610;
 			
 			// aapt resource value: 0x7f02006b
-			public const int notification_bg_normal = 2130837611;
+			public const int design_password_eye = 2130837611;
 			
 			// aapt resource value: 0x7f02006c
-			public const int notification_bg_normal_pressed = 2130837612;
+			public const int design_snackbar_background = 2130837612;
 			
 			// aapt resource value: 0x7f02006d
-			public const int notification_icon_background = 2130837613;
-			
-			// aapt resource value: 0x7f020080
-			public const int notification_template_icon_bg = 2130837632;
-			
-			// aapt resource value: 0x7f020081
-			public const int notification_template_icon_low_bg = 2130837633;
+			public const int DKK = 2130837613;
 			
 			// aapt resource value: 0x7f02006e
-			public const int notification_tile_bg = 2130837614;
+			public const int EGP = 2130837614;
 			
 			// aapt resource value: 0x7f02006f
-			public const int notify_panel_notification_icon_bg = 2130837615;
+			public const int EUR = 2130837615;
 			
 			// aapt resource value: 0x7f020070
-			public const int oshchadbank = 2130837616;
+			public const int GBP = 2130837616;
 			
 			// aapt resource value: 0x7f020071
-			public const int otp_bank = 2130837617;
+			public const int GEL = 2130837617;
 			
 			// aapt resource value: 0x7f020072
-			public const int PLN = 2130837618;
+			public const int HKD = 2130837618;
 			
 			// aapt resource value: 0x7f020073
-			public const int PrivatBank = 2130837619;
+			public const int HRK = 2130837619;
 			
 			// aapt resource value: 0x7f020074
-			public const int pumb = 2130837620;
+			public const int HUF = 2130837620;
 			
 			// aapt resource value: 0x7f020075
-			public const int rfba = 2130837621;
+			public const int idea_bank = 2130837621;
 			
 			// aapt resource value: 0x7f020076
-			public const int RUB = 2130837622;
+			public const int ILS = 2130837622;
 			
 			// aapt resource value: 0x7f020077
-			public const int sberbank = 2130837623;
+			public const int INR = 2130837623;
 			
 			// aapt resource value: 0x7f020078
-			public const int thumb_empty = 2130837624;
+			public const int JPY = 2130837624;
 			
 			// aapt resource value: 0x7f020079
-			public const int ukrgaz = 2130837625;
+			public const int kantor = 2130837625;
 			
 			// aapt resource value: 0x7f02007a
-			public const int ukrpost = 2130837626;
+			public const int KGS = 2130837626;
 			
 			// aapt resource value: 0x7f02007b
-			public const int ukrsibbank = 2130837627;
+			public const int kredobankpl = 2130837627;
 			
 			// aapt resource value: 0x7f02007c
-			public const int ukrsoc = 2130837628;
+			public const int KRW = 2130837628;
 			
 			// aapt resource value: 0x7f02007d
-			public const int unex = 2130837629;
+			public const int KWD = 2130837629;
 			
 			// aapt resource value: 0x7f02007e
-			public const int unikredit = 2130837630;
+			public const int KZT = 2130837630;
 			
 			// aapt resource value: 0x7f02007f
-			public const int USD = 2130837631;
+			public const int LBP = 2130837631;
+			
+			// aapt resource value: 0x7f020080
+			public const int MDL = 2130837632;
+			
+			// aapt resource value: 0x7f020081
+			public const int misto_bank = 2130837633;
+			
+			// aapt resource value: 0x7f020082
+			public const int MXN = 2130837634;
+			
+			// aapt resource value: 0x7f020083
+			public const int navigation_empty_icon = 2130837635;
+			
+			// aapt resource value: 0x7f020084
+			public const int NOK = 2130837636;
+			
+			// aapt resource value: 0x7f020085
+			public const int notification_action_background = 2130837637;
+			
+			// aapt resource value: 0x7f020086
+			public const int notification_bg = 2130837638;
+			
+			// aapt resource value: 0x7f020087
+			public const int notification_bg_low = 2130837639;
+			
+			// aapt resource value: 0x7f020088
+			public const int notification_bg_low_normal = 2130837640;
+			
+			// aapt resource value: 0x7f020089
+			public const int notification_bg_low_pressed = 2130837641;
+			
+			// aapt resource value: 0x7f02008a
+			public const int notification_bg_normal = 2130837642;
+			
+			// aapt resource value: 0x7f02008b
+			public const int notification_bg_normal_pressed = 2130837643;
+			
+			// aapt resource value: 0x7f02008c
+			public const int notification_icon_background = 2130837644;
+			
+			// aapt resource value: 0x7f0200ac
+			public const int notification_template_icon_bg = 2130837676;
+			
+			// aapt resource value: 0x7f0200ad
+			public const int notification_template_icon_low_bg = 2130837677;
+			
+			// aapt resource value: 0x7f02008d
+			public const int notification_tile_bg = 2130837645;
+			
+			// aapt resource value: 0x7f02008e
+			public const int notify_panel_notification_icon_bg = 2130837646;
+			
+			// aapt resource value: 0x7f02008f
+			public const int NZD = 2130837647;
+			
+			// aapt resource value: 0x7f020090
+			public const int oshchadbank = 2130837648;
+			
+			// aapt resource value: 0x7f020091
+			public const int otp_bank = 2130837649;
+			
+			// aapt resource value: 0x7f020092
+			public const int PKR = 2130837650;
+			
+			// aapt resource value: 0x7f020093
+			public const int PLN = 2130837651;
+			
+			// aapt resource value: 0x7f020094
+			public const int PrivatBank = 2130837652;
+			
+			// aapt resource value: 0x7f020095
+			public const int pumb = 2130837653;
+			
+			// aapt resource value: 0x7f020096
+			public const int rfba = 2130837654;
+			
+			// aapt resource value: 0x7f020097
+			public const int RON = 2130837655;
+			
+			// aapt resource value: 0x7f020098
+			public const int RUB = 2130837656;
+			
+			// aapt resource value: 0x7f020099
+			public const int SAR = 2130837657;
+			
+			// aapt resource value: 0x7f02009a
+			public const int sberbank = 2130837658;
+			
+			// aapt resource value: 0x7f02009b
+			public const int SEK = 2130837659;
+			
+			// aapt resource value: 0x7f02009c
+			public const int SGD = 2130837660;
+			
+			// aapt resource value: 0x7f02009d
+			public const int THB = 2130837661;
+			
+			// aapt resource value: 0x7f02009e
+			public const int thumb_empty = 2130837662;
+			
+			// aapt resource value: 0x7f02009f
+			public const int TJS = 2130837663;
+			
+			// aapt resource value: 0x7f0200a0
+			public const int TRY_ = 2130837664;
+			
+			// aapt resource value: 0x7f0200a1
+			public const int TWD = 2130837665;
+			
+			// aapt resource value: 0x7f0200a2
+			public const int UAH = 2130837666;
+			
+			// aapt resource value: 0x7f0200a3
+			public const int ukrgaz = 2130837667;
+			
+			// aapt resource value: 0x7f0200a4
+			public const int ukrpost = 2130837668;
+			
+			// aapt resource value: 0x7f0200a5
+			public const int ukrsibbank = 2130837669;
+			
+			// aapt resource value: 0x7f0200a6
+			public const int ukrsoc = 2130837670;
+			
+			// aapt resource value: 0x7f0200a7
+			public const int unex = 2130837671;
+			
+			// aapt resource value: 0x7f0200a8
+			public const int unikredit = 2130837672;
+			
+			// aapt resource value: 0x7f0200a9
+			public const int UNKOWN = 2130837673;
+			
+			// aapt resource value: 0x7f0200aa
+			public const int USD = 2130837674;
+			
+			// aapt resource value: 0x7f0200ab
+			public const int VND = 2130837675;
 			
 			static Drawable()
 			{
@@ -3006,118 +3138,121 @@ namespace HryvniaToday
 			public const int ChartRatesView = 2130968604;
 			
 			// aapt resource value: 0x7f04001d
-			public const int CurrencyItem = 2130968605;
+			public const int ConvertorForBank = 2130968605;
 			
 			// aapt resource value: 0x7f04001e
-			public const int CurrencyListForBank = 2130968606;
+			public const int CurrencyItem = 2130968606;
 			
 			// aapt resource value: 0x7f04001f
-			public const int design_bottom_navigation_item = 2130968607;
+			public const int CurrencyListForBank = 2130968607;
 			
 			// aapt resource value: 0x7f040020
-			public const int design_bottom_sheet_dialog = 2130968608;
+			public const int design_bottom_navigation_item = 2130968608;
 			
 			// aapt resource value: 0x7f040021
-			public const int design_layout_snackbar = 2130968609;
+			public const int design_bottom_sheet_dialog = 2130968609;
 			
 			// aapt resource value: 0x7f040022
-			public const int design_layout_snackbar_include = 2130968610;
+			public const int design_layout_snackbar = 2130968610;
 			
 			// aapt resource value: 0x7f040023
-			public const int design_layout_tab_icon = 2130968611;
+			public const int design_layout_snackbar_include = 2130968611;
 			
 			// aapt resource value: 0x7f040024
-			public const int design_layout_tab_text = 2130968612;
+			public const int design_layout_tab_icon = 2130968612;
 			
 			// aapt resource value: 0x7f040025
-			public const int design_menu_item_action_area = 2130968613;
+			public const int design_layout_tab_text = 2130968613;
 			
 			// aapt resource value: 0x7f040026
-			public const int design_navigation_item = 2130968614;
+			public const int design_menu_item_action_area = 2130968614;
 			
 			// aapt resource value: 0x7f040027
-			public const int design_navigation_item_header = 2130968615;
+			public const int design_navigation_item = 2130968615;
 			
 			// aapt resource value: 0x7f040028
-			public const int design_navigation_item_separator = 2130968616;
+			public const int design_navigation_item_header = 2130968616;
 			
 			// aapt resource value: 0x7f040029
-			public const int design_navigation_item_subheader = 2130968617;
+			public const int design_navigation_item_separator = 2130968617;
 			
 			// aapt resource value: 0x7f04002a
-			public const int design_navigation_menu = 2130968618;
+			public const int design_navigation_item_subheader = 2130968618;
 			
 			// aapt resource value: 0x7f04002b
-			public const int design_navigation_menu_item = 2130968619;
+			public const int design_navigation_menu = 2130968619;
 			
 			// aapt resource value: 0x7f04002c
-			public const int design_text_input_password_icon = 2130968620;
+			public const int design_navigation_menu_item = 2130968620;
 			
 			// aapt resource value: 0x7f04002d
-			public const int Main = 2130968621;
+			public const int design_text_input_password_icon = 2130968621;
 			
 			// aapt resource value: 0x7f04002e
-			public const int notification_action = 2130968622;
+			public const int Main = 2130968622;
 			
 			// aapt resource value: 0x7f04002f
-			public const int notification_action_tombstone = 2130968623;
+			public const int notification_action = 2130968623;
 			
 			// aapt resource value: 0x7f040030
-			public const int notification_media_action = 2130968624;
+			public const int notification_action_tombstone = 2130968624;
 			
 			// aapt resource value: 0x7f040031
-			public const int notification_media_cancel_action = 2130968625;
+			public const int notification_media_action = 2130968625;
 			
 			// aapt resource value: 0x7f040032
-			public const int notification_template_big_media = 2130968626;
+			public const int notification_media_cancel_action = 2130968626;
 			
 			// aapt resource value: 0x7f040033
-			public const int notification_template_big_media_custom = 2130968627;
+			public const int notification_template_big_media = 2130968627;
 			
 			// aapt resource value: 0x7f040034
-			public const int notification_template_big_media_narrow = 2130968628;
+			public const int notification_template_big_media_custom = 2130968628;
 			
 			// aapt resource value: 0x7f040035
-			public const int notification_template_big_media_narrow_custom = 2130968629;
+			public const int notification_template_big_media_narrow = 2130968629;
 			
 			// aapt resource value: 0x7f040036
-			public const int notification_template_custom_big = 2130968630;
+			public const int notification_template_big_media_narrow_custom = 2130968630;
 			
 			// aapt resource value: 0x7f040037
-			public const int notification_template_icon_group = 2130968631;
+			public const int notification_template_custom_big = 2130968631;
 			
 			// aapt resource value: 0x7f040038
-			public const int notification_template_lines_media = 2130968632;
+			public const int notification_template_icon_group = 2130968632;
 			
 			// aapt resource value: 0x7f040039
-			public const int notification_template_media = 2130968633;
+			public const int notification_template_lines_media = 2130968633;
 			
 			// aapt resource value: 0x7f04003a
-			public const int notification_template_media_custom = 2130968634;
+			public const int notification_template_media = 2130968634;
 			
 			// aapt resource value: 0x7f04003b
-			public const int notification_template_part_chronometer = 2130968635;
+			public const int notification_template_media_custom = 2130968635;
 			
 			// aapt resource value: 0x7f04003c
-			public const int notification_template_part_time = 2130968636;
+			public const int notification_template_part_chronometer = 2130968636;
 			
 			// aapt resource value: 0x7f04003d
-			public const int select_dialog_item_material = 2130968637;
+			public const int notification_template_part_time = 2130968637;
 			
 			// aapt resource value: 0x7f04003e
-			public const int select_dialog_multichoice_material = 2130968638;
+			public const int select_dialog_item_material = 2130968638;
 			
 			// aapt resource value: 0x7f04003f
-			public const int select_dialog_singlechoice_material = 2130968639;
+			public const int select_dialog_multichoice_material = 2130968639;
 			
 			// aapt resource value: 0x7f040040
-			public const int support_simple_spinner_dropdown_item = 2130968640;
+			public const int select_dialog_singlechoice_material = 2130968640;
 			
 			// aapt resource value: 0x7f040041
-			public const int Toolbar = 2130968641;
+			public const int support_simple_spinner_dropdown_item = 2130968641;
 			
 			// aapt resource value: 0x7f040042
-			public const int ToolbarCurrencyList = 2130968642;
+			public const int Toolbar = 2130968642;
+			
+			// aapt resource value: 0x7f040043
+			public const int ToolbarCurrencyList = 2130968643;
 			
 			static Layout()
 			{

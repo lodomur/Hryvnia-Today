@@ -15,7 +15,7 @@ using System.Linq;
 
 namespace HryvniaToday
 {
-    [Activity(Label = "Візуалізація курсів", Theme = "@style/MyTheme")]
+    [Activity(Label = "Банки за сьогодні", Theme = "@style/MyTheme")]
     public class ChartRatesActivity : Activity
     {
 

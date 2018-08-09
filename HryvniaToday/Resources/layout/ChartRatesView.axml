@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00796b">
+    android:background="#FFFFFF">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -16,7 +16,8 @@
             android:layout_height="wrap_content"
             android:text="Банки продають (USD)"
             android:textColor="#FFFFFF"
-            android:padding="5dp"
+            android:background="#00695c"
+            android:padding="2dp"
             android:gravity="center"
             android:textSize="14sp" />
         <android.support.v7.widget.CardView
@@ -25,9 +26,8 @@
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
             android:foreground="?android:attr/selectableItemBackground"
-            android:padding="8dp"
-            android:clickable="false"
-            android:layout_margin="10dp">
+            android:elevation="15dp"
+            android:clickable="false">
             <microcharts.droid.ChartView
                 android:id="@+id/chartViewUSD_sell"
                 android:layout_width="wrap_content"
@@ -40,7 +40,8 @@
             android:layout_height="wrap_content"
             android:text="Банки купують (USD)"
             android:textColor="#FFFFFF"
-            android:padding="5dp"
+               android:background="#00695c"
+            android:padding="2dp"
             android:gravity="center"
             android:textSize="14sp" />
         <android.support.v7.widget.CardView
@@ -50,7 +51,7 @@
             android:background="#FFFFFF"
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="false"
-            android:layout_margin="10dp">
+            >
             <microcharts.droid.ChartView
                 android:id="@+id/chartViewUSD_buy"
                 android:layout_width="wrap_content"
@@ -62,8 +63,9 @@
             android:id="@+id/EURRateTextView_sell"
             android:layout_height="wrap_content"
             android:text="Банки купують (EUR)"
+               android:background="#00695c"
             android:textColor="#FFFFFF"
-            android:padding="5dp"
+            android:padding="2dp"
             android:gravity="center"
             android:textSize="14sp" />
         <android.support.v7.widget.CardView
@@ -73,7 +75,7 @@
             android:background="#FFFFFF"
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="false"
-            android:layout_margin="10dp">
+            >
             <microcharts.droid.ChartView
                 android:id="@+id/chartViewEUR_sell"
                 android:layout_width="wrap_content"
@@ -84,9 +86,10 @@
             android:layout_width="match_parent"
             android:id="@+id/EURRateTextView_buy"
             android:layout_height="wrap_content"
+               android:background="#00695c"
             android:text="Банки купують (EUR)"
             android:textColor="#FFFFFF"
-            android:padding="5dp"
+            android:padding="2dp"
             android:gravity="center"
             android:textSize="14sp" />
         <android.support.v7.widget.CardView
@@ -96,7 +99,7 @@
             android:background="#FFFFFF"
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="false"
-            android:layout_margin="10dp">
+            >
             <microcharts.droid.ChartView
                 android:id="@+id/chartViewEUR_buy"
                 android:layout_width="wrap_content"
@@ -107,9 +110,10 @@
             android:layout_width="match_parent"
             android:id="@+id/RUBRateTextView_sell"
             android:layout_height="wrap_content"
+               android:background="#00695c"
             android:text="Банки купують (RUB)"
             android:textColor="#FFFFFF"
-            android:padding="5dp"
+            android:padding="2dp"
             android:gravity="center"
             android:textSize="14sp" />
         <android.support.v7.widget.CardView
@@ -119,7 +123,7 @@
             android:background="#FFFFFF"
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="false"
-            android:layout_margin="10dp">
+            >
             <microcharts.droid.ChartView
                 android:id="@+id/chartViewRUB_sell"
                 android:layout_width="wrap_content"
@@ -130,9 +134,10 @@
             android:layout_width="match_parent"
             android:id="@+id/RUBRateTextView_buy"
             android:layout_height="wrap_content"
+               android:background="#00695c"
             android:text="Банки продають (RUB)"
             android:textColor="#FFFFFF"
-            android:padding="5dp"
+            android:padding="2dp"
             android:gravity="center"
             android:textSize="14sp" />
         <android.support.v7.widget.CardView
@@ -142,7 +147,7 @@
             android:background="#FFFFFF"
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="false"
-            android:layout_margin="10dp">
+            >
             <microcharts.droid.ChartView
                 android:id="@+id/chartViewRUB_buy"
                 android:layout_width="wrap_content"
@@ -152,10 +157,11 @@
         <TextView
             android:layout_width="match_parent"
             android:id="@+id/PLNRateTextView_sell"
+               android:background="#00695c"
             android:layout_height="wrap_content"
             android:text="Банки купують (PLN)"
             android:textColor="#FFFFFF"
-            android:padding="5dp"
+            android:padding="2dp"
             android:gravity="center"
             android:textSize="14sp" />
         <android.support.v7.widget.CardView
@@ -165,7 +171,7 @@
             android:background="#FFFFFF"
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="false"
-            android:layout_margin="10dp">
+            >
             <microcharts.droid.ChartView
                 android:id="@+id/chartViewPLN_sell"
                 android:layout_width="wrap_content"
@@ -175,10 +181,11 @@
         <TextView
             android:layout_width="match_parent"
             android:id="@+id/PLNRateTextView_buy"
+               android:background="#00695c"
             android:layout_height="wrap_content"
             android:text="Банки продають (PLN)"
             android:textColor="#FFFFFF"
-            android:padding="5dp"
+            android:padding="2dp"
             android:gravity="center"
             android:textSize="14sp" />
         <android.support.v7.widget.CardView
@@ -188,7 +195,7 @@
             android:background="#FFFFFF"
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="false"
-            android:layout_margin="10dp">
+            >
             <microcharts.droid.ChartView
                 android:id="@+id/chartViewPLN_buy"
                 android:layout_width="wrap_content"
